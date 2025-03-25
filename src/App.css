@@ -1,38 +1,138 @@
+/* App.css */
+
 .App {
+  border: 1px solid #e0e0e0;
+  margin: 50px auto;
+  padding: 30px 25px;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  background-color: #fefefe;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
   text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.to-do-container {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.to-do-container ul {
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease-in-out;
+  transition: all 0.2s ease;
+}
+
+.item:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.02);
+}
+
+.to-do-container ul li {
+  list-style-type: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #999;
+  font-style: italic;
+}
+
+.del {
+  margin-left: 15px;
+  font-size: 18px;
+  color: #e74c3c;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.del:hover {
+  transform: scale(1.2);
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+.filter-buttons {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.filter-buttons button:hover {
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.filter-buttons .active {
+  background-color: #007bff;
+  color: white;
 }
 
-@keyframes App-logo-spin {
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
