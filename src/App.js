@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import './App.css';
+import Swal from 'sweetalert2';
+
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -22,10 +24,30 @@ function App() {
   };
 
   const handleDeleteItem = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+    Swal.fire({
+      title: 'Tu es sûr ?',
+      text: "Cette tâche sera supprimée définitivement.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Oui, supprimer',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newTodos = [...todos];
+        newTodos.splice(index, 1);
+        setTodos(newTodos);
+  
+        Swal.fire(
+          'Supprimée !',
+          'La tâche a bien été supprimée.',
+          'success'
+        );
+      }
+    });
   };
+  
 
   const getFilteredTodos = () => {
     if (filter === 'completed') {
