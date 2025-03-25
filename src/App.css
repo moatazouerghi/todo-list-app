@@ -14,7 +14,7 @@
 h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 20px;  
 }
 
 .to-do-container {
@@ -58,7 +58,7 @@ h2 {
   font-style: italic;
 }
 
-.del {
+.trash {
   margin-left: 15px;
   font-size: 18px;
   color: #e74c3c;

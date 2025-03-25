@@ -57,7 +57,7 @@ function App() {
               >
                 {text}
               </li>
-              <span className='del' onClick={() => handleDeleteItem(index)}>❌</span>
+              <span className='trash' onClick={() => handleDeleteItem(index)}>❌</span>
             </div>
           ))}
         </ul>
